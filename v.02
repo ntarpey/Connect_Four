@@ -1,0 +1,72 @@
+name = raw_input("What's your name, stranger?")
+name2 = raw_input("What's your opponent's name?")
+#print "Hi %s and %s!  Welcome to Nate's Crazy Connect four game!" % name, name2
+
+board = []
+
+for x in range(6):
+    board.append(["_"] * 7)
+
+def print_board(board):
+    for row in board:
+        print " ".join(row)
+
+print "Here is the board! It's empty!"
+print print_board(board)
+guess = raw_input("Which column will you drop your piece into, %s?  Select a number between 1 and 7." % name)
+
+def guess_selection(guess):
+    guess_number = float(guess)
+    for guess_number in range(1,8):
+        for y in range(5,-1,-1):
+            for z in range(6):
+                if board[y][z] == "X" or board[y][z] == "O":
+                    while board[y][z] == "X" or board[y][z] == "O":
+                        for q in range(5):
+                            if board[q][5] == "X" or board[q][5] =="O":
+                                print "This column is full...."
+                                board[y+1][z+1] == "X"
+                        
+                        
+                else:
+                    board[5][int(guess)-1] = "X"
+    print print_board(board)
+        
+        
+"""        
+    if guess_number == 1:
+        for x in range(5):
+            if board[x][0] == "X" or board[x][0]== "O":
+                print "Sorry that row's full bro, guess again"
+            else:
+                board[5][0] = "X"
+        print print_board(board)
+    elif guess_number == 2:
+        board[5][1] = "X"
+        print print_board(board)
+    elif guess_number == 3:
+        board[5][2] = "X"
+        print print_board(board)
+    elif guess_number == 4:
+        board[5][3] = "X"
+        print print_board(board)
+    elif guess_number == 5:
+        board[5][4] ="X"
+        print print_board(board)
+    elif guess_number == 6:
+        board[5][5] = "X"
+        print print_board(board)
+    elif guess_number == 7:
+        board[5][6] = "X"
+        print print_board(board)
+    else:
+        print "That wasn't a number you selected, dummy!"
+        
+#for x in range(7):
+ #   if board[x][0] == board[x][1] ==  board[x][2] ==  board[x][3]  == "X":
+"""
+for x in range(10):
+    print guess_selection(guess)       
+    guess2 = raw_input("Which column will you drop your piece into, %s?  Select a number between 1 and 7." % name2)
+    print guess_selection(guess2)
+    guess1 = raw_input("Which column will you drop your piece into, %s?  Select a number between 1 and 7." % name)
