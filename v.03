@@ -1,0 +1,55 @@
+name = raw_input("What's your name, stranger?")
+name2 = raw_input("What's your opponent's name?")
+#print "Hi %s and %s!  Welcome to Nate's Crazy Connect four game!" % name, name2
+
+board = []
+
+for x in range(6):
+    board.append(["_"] * 7)
+
+def print_board(board):
+    for row in board:
+        print " ".join(row)
+board = []
+
+for x in range(6):
+    board.append(["_"] * 7)
+
+def print_board(board):
+    for row in board:
+        print " ".join(row)
+
+print "Here is the board! It's empty!"
+print print_board(board)
+guess = raw_input("Which column will you drop your piece into, %s?  Select a number between 1 and 7." % name)
+
+def guess_selection(guess):
+    guess_number = float(guess)
+    for guess_number in range(1,8):
+        for y in range(5,-1,-1):
+            for z in range(7):
+                if board[y][z] == "X" or board[y][z] == "O":
+                    for q in range(7):
+                        if board[0][q] == "X" or board[0][q] =="O":
+                            print "This column is full...."
+                        else:
+                            board[y-1][z] == "X"
+                            
+                else:
+                    board[5][int(guess)-1] = "X"
+    print print_board(board)
+        
+        
+"""        
+    if guess_number == 1:
+        for x in range(5):
+            if board[x][0] == "X" or board[x][0]== "O":
+                print "Sorry that row's full bro, guess again"
+            else:
+                board[5][0] = "X"
+        print print_board(board)
+"""
+
+print guess_selection(guess)       
+guess2 = raw_input("Which column will you drop your piece into, %s?  Select a number between 1 and 7." % name2)
+print guess_selection(guess2)  #code now accepts two answers, but is not adding to the 2nd row if x exists on 1st...
